@@ -52,3 +52,9 @@ Read more from [GraphQL schema basics](https://www.apollographql.com/docs/apollo
 This mutation type defines a single available mutation, addPerson. The mutation accepts four arguments (name, phone, city, street) and returns a newly created Person object. This Person object conforms to the structure that you defined in your schema.
 
 ![add new element](https://res.cloudinary.com/dvqlenul5/image/upload/v1662828031/Mutation_ozxi3t.png)
+
+![mutation resolver](https://res.cloudinary.com/dvqlenul5/image/upload/v1662828031/Mutation_ozxi3t.png)
+
+> The query
+
+![mutatiom request](https://res.cloudinary.com/dvqlenul5/image/upload/v1662829155/playground_mutation_kkwvtw.png)
