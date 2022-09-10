@@ -26,13 +26,15 @@ Add "type": "module",
 
 Read more from [GraphQL schema basics](https://www.apollographql.com/docs/apollo-server/schema/schema/)
 
-![Data set of your first Graphql server](https://res.cloudinary.com/dvqlenul5/image/upload/v1662808018/Schema_mmrddm.png)
+![Schema for this example](https://res.cloudinary.com/dvqlenul5/image/upload/v1662816369/Schema_syrl5e.png)
 
 ## Define your resolvers :wrench: : 
 
 >  Resolvers define the technique for fetching the types defined in the schema.
+>  Apollo provides a [Default resolvers](https://www.apollographql.com/docs/apollo-server/data/resolvers#default-resolvers)
+>  You can create calculated fields using custom resolvers. This is a powerful feature, which allow us getting server-side dynamic information instead of working with static information on client side. 
 
-![Resolvers for this example](https://res.cloudinary.com/dvqlenul5/image/upload/v1662808051/Resolvers_yq0qak.png)
+![Resolvers for this example](https://res.cloudinary.com/dvqlenul5/image/upload/v1662816308/Resolvers_xe94cf.png)
 
 ## Create an instance of apollo server and start the server :arrow_forward: : 
 
@@ -40,5 +42,5 @@ Read more from [GraphQL schema basics](https://www.apollographql.com/docs/apollo
 
 ## Play on playground :video_game: :
 
-![apollo playground](https://res.cloudinary.com/dvqlenul5/image/upload/v1662806004/Apollo_Playground_fie9gc.png)
+![apollo playground](https://res.cloudinary.com/dvqlenul5/image/upload/v1662816222/Apollo_Playground_yhtnu5.png)
 
