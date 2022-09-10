@@ -53,7 +53,7 @@ This mutation type defines a single available mutation, addPerson. The mutation 
 
 ![add new element](https://res.cloudinary.com/dvqlenul5/image/upload/v1662828031/Mutation_ozxi3t.png)
 
-![mutation resolver](https://res.cloudinary.com/dvqlenul5/image/upload/v1662828031/Mutation_ozxi3t.png)
+![mutation resolver](https://res.cloudinary.com/dvqlenul5/image/upload/v1662829372/Mutation_resolver_zcdc3y.png)
 
 > The query
 
