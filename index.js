@@ -1,3 +1,5 @@
+import { gql, ApolloServer } from "apollo-server";
+
 const persons = [
   {
     name: "Maxi",
@@ -21,3 +23,18 @@ const persons = [
     id: "36164678",
   },
 ];
+
+const typeDefs = gql`
+  type Person {
+    name: String!
+    phone: String
+    street: String!
+    city: String!
+    id: ID!
+  }
+
+  type Query {
+    personCount: Int!
+    allPersons: [Person]!
+  }
+`;
