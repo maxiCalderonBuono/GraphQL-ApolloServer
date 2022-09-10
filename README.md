@@ -26,13 +26,13 @@ Add "type": "module",
 
 Read more from [GraphQL schema basics](https://www.apollographql.com/docs/apollo-server/schema/schema/)
 
-![Data set of your first Graphql server](https://res.cloudinary.com/dvqlenul5/image/upload/v1662805242/Schema_vp3adv.png)
+![Data set of your first Graphql server](https://res.cloudinary.com/dvqlenul5/image/upload/v1662808018/Schema_mmrddm.png)
 
 ## Define your resolvers :wrench: : 
 
 >  Resolvers define the technique for fetching the types defined in the schema.
 
-![Resolvers for this example](https://res.cloudinary.com/dvqlenul5/image/upload/v1662805771/Resolvers_suayn0.png)
+![Resolvers for this example](https://res.cloudinary.com/dvqlenul5/image/upload/v1662808051/Resolvers_yq0qak.png)
 
 ## Create an instance of apollo server and start the server :arrow_forward: : 
 
