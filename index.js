@@ -25,17 +25,22 @@ const persons = [
 ];
 
 const typeDefs = gql`
+  type Address {
+    street: String!
+    city: String!
+  }
+
   type Person {
     name: String!
     phone: String
-    street: String!
-    city: String!
+    address: Address!
     id: ID!
   }
 
   type Query {
     personCount: Int!
     allPersons: [Person]!
+    findPerson(name: String!): Person
   }
 `;
 
@@ -43,5 +48,29 @@ const resolvers = {
   Query: {
     personCount: () => persons.length,
     allPersons: () => persons,
+    findPerson: (root, args) => {
+      const { name } = args;
+      return persons.find((person) => person.name === name);
+    },
+  },
+
+  // Calculated field using custom resolver
+
+  Person: {
+    address: (root) => {
+      return {
+        street: root.street,
+        city: root.city,
+      };
+    },
   },
 };
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+server.listen().then(({ url }) => {
+  console.log(`Server ready at ${url}`);
+});
