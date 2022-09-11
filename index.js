@@ -18,7 +18,6 @@ const persons = [
   },
   {
     name: "Nico",
-    phone: "045-91995082",
     street: "Place",
     city: "Heering",
     id: "36164678",
@@ -26,6 +25,11 @@ const persons = [
 ];
 
 const typeDefs = gql`
+  enum YesNo {
+    YES
+    NO
+  }
+
   type Address {
     street: String!
     city: String!
@@ -40,7 +44,7 @@ const typeDefs = gql`
 
   type Query {
     personCount: Int!
-    allPersons: [Person]!
+    allPersons(phone: YesNo): [Person]!
     findPerson(name: String!): Person
   }
 
@@ -51,13 +55,23 @@ const typeDefs = gql`
       street: String!
       city: String!
     ): Person
+
+    editPhone(name: String!, phone: String!): Person
   }
 `;
 
 const resolvers = {
   Query: {
     personCount: () => persons.length,
-    allPersons: () => persons,
+
+    allPersons: (root, args) => {
+      if (!args.phone) return persons;
+
+      const byPhone = (person) =>
+        args.phone === "YES" ? person.phone : !person.phone;
+
+      return persons.filter(byPhone);
+    },
     findPerson: (root, args) => {
       const { name } = args;
       return persons.find((person) => person.name === name);
@@ -69,6 +83,20 @@ const resolvers = {
       const person = { ...args, id: uuid() };
       persons.push(person);
       return person;
+    },
+
+    editPhone: (root, args) => {
+      const personIndex = persons.findIndex((p) => p.name === args.name);
+
+      if (!personIndex === -1) return null;
+
+      const person = persons[personIndex];
+
+      const updatedPerson = { ...person, phone: args.phone };
+
+      persons[personIndex] = updatedPerson;
+
+      return updatedPerson;
     },
   },
 
