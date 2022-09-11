@@ -1,7 +1,9 @@
 import { gql, ApolloServer } from "apollo-server";
 import { v1 as uuid } from "uuid";
+import "./database/config.js";
+import User from "./models/User.js";
 
-const persons = [
+/* const persons = [
   {
     name: "Maxi",
     phone: "045-91995343",
@@ -22,7 +24,7 @@ const persons = [
     city: "Heering",
     id: "36164678",
   },
-];
+]; */
 
 const typeDefs = gql`
   enum YesNo {
@@ -60,9 +62,61 @@ const typeDefs = gql`
   }
 `;
 
-const resolvers = {
+/*const resolvers = {
   Query: {
     personCount: () => persons.length,
+
+    allPersons: (root, args) => {
+      if (!args.phone) return persons;
+
+      const byPhone = (person) =>
+        args.phone === "YES" ? person.phone : !person.phone;
+
+      return persons.filter(byPhone);
+    },
+    findPerson: (root, args) => {
+      const { name } = args;
+      return persons.find((person) => person.name === name);
+    },
+  },
+
+  Mutation: {
+    addPerson: (root, args) => {
+      const person = { ...args, id: uuid() };
+      persons.push(person);
+      return person;
+    },
+
+    editPhone: (root, args) => {
+      const personIndex = persons.findIndex((p) => p.name === args.name);
+
+      if (!personIndex === -1) return null;
+
+      const person = persons[personIndex];
+
+      const updatedPerson = { ...person, phone: args.phone };
+
+      persons[personIndex] = updatedPerson;
+
+      return updatedPerson;
+    },
+  },
+
+  // Calculated field using custom resolver
+
+  Person: {
+    address: (root) => {
+      return {
+        street: root.street,
+        city: root.city,
+      };
+    },
+  },
+}; */
+
+const resolvers = {
+  Query: {
+    personCount: () => User.collection.countDocuments(),
 
     allPersons: (root, args) => {
       if (!args.phone) return persons;
