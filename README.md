@@ -58,3 +58,9 @@ This mutation type defines a single available mutation, addPerson. The mutation 
 > The query
 
 ![mutatiom request](https://res.cloudinary.com/dvqlenul5/image/upload/v1662829155/playground_mutation_kkwvtw.png)
+
+# ALIASES
+
+Alias allow us to use the same field for different request under the same query, otherwise the fields would conflicted.
+
+![alias](https://res.cloudinary.com/dvqlenul5/image/upload/v1662897132/alias_d9bfik.png)
